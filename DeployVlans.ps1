@@ -80,7 +80,6 @@ while($runs -ne 2){
 #create the vlan on each ip
 foreach($ip in $data){
     if(!$ip.EndsWith("|")){
-        if($ip -eq "192.168.99.6"){
             $tagged = gettagged -ip $ip
             if($dev){
                 Write-Host $name
@@ -90,7 +89,6 @@ foreach($ip in $data){
             }else{
                 createvlan -name $name -ip $ip -tagged $tagged -id $freeid
             }
-        }
     }
 }
 #Write data into output file
